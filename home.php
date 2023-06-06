@@ -40,13 +40,43 @@ get_header();
         top: 0;
         transform: rotate(180deg);
     }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .page-numbers {
+        font-size: 18px;
+        text-decoration: none;
+        margin: 15px;
+        color: black;
+        position: relative;
+    }
+
+    .page-numbers:not(.next)::after {
+        content: '';
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: -70%;
+        top: 0;
+    }
 </style>
-<main id="primary" class="site-main" data-aos="fade-in" data-aos-delay="300">
+<main id="primary" class="site-main mb-5" data-aos="fade-in" data-aos-delay="300">
     <div class="container">
         <div class="row pt-5 justify-content-center">
             <?php
+            $btpgid = get_queried_object_id();
+            $btmetanm = get_post_meta($btpgid, 'WP_Catid', 'true');
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
             $args = array(
-                'posts_per_page' => 3,
+                'posts_per_page' => 9,
+                'category_name' => $btmetanm,
+                'paged' => $paged,
+                'post_type' => 'post'
             );
             $postslist = new WP_Query($args);
 
@@ -82,7 +112,13 @@ get_header();
 
                 endwhile;
 
-                the_posts_pagination(array('mid_size' => 2));
+                the_posts_pagination(
+                    array(
+                        'mid_size' => 2,
+                        'prev_text' => __('<', 'textdomain'),
+                        'next_text' => __('>', 'textdomain'),
+                    )
+                );
                 wp_reset_postdata();
             endif;
             ?>
