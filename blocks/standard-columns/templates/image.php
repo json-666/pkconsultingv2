@@ -1,0 +1,1 @@
+<img src="<?= $args['image-desktop']['url'] ?>" alt="" class="w-100">

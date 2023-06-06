@@ -1,0 +1,80 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.font{
+    &__size{
+        @each $size in $sizes{
+            &__#{$size}{
+                @include toRem("font-size",$size);
+            }
+        }
+    }
+    &__weight{
+        @for $w from 1 through 7{
+            &__#{$w*100}{
+                font-weight: #{$w*100};
+            }
+        }
+    }
+    &__color{
+        @each $colorName, $colorCode in $colors{
+            &__#{$colorName}{
+                color: $colorCode;
+            }
+        }
+    }
+    &__family{
+        &__playfair{
+            font-family: 'Playfair Display', serif;
+        }
+        &__lato{
+            font-family: 'Lato', sans-serif;
+        }
+    }
+}
+@each $colorName, $colorCode in $colors {
+    #{$colorName} {
+        color: $colorCode;
+    }
+}
+h1,h2,h3,h4,h5,h6{
+    @extend .font__family__playfair;
+    @extend .font__weight__700;
+    @extend .font__color__black;
+}
+h1{
+    @extend .font__size__64;
+    margin-top: 0;
+}
+h2{
+    @extend .font__size__36;
+    @extend .font__weight__700;
+    @extend .font__color__black;
+}
+h2.section-title{
+    position: relative;
+    margin-bottom: 50px;
+    text-align: center;
+    &::after {
+        content: '';
+        width: 100px;
+        background-color: map-get($colors, "bage");
+        height: 4px;
+        border-radius: 2%;
+        position: absolute;
+        left: 0;
+        bottom: -15px;
+        margin-left: calc(50% - 50px);
+    }
+}
+p{
+    line-height: 28.5px;
+}
+li,a,p{
+    @extend .font__family__lato;
+    @extend .font__color__black;
+}
+*{
+    -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+}

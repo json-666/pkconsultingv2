@@ -1,0 +1,133 @@
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+//Overwrite root font size
+html{
+    font-size: 14px !important;
+}
+body{
+    background-color: map-get($colors, "bggray");
+    position: relative;
+    overflow-x: hidden;
+}
+.row{
+    width: 100%;
+    margin: 0;
+}
+main{
+    margin-top: 50px;
+}
+.btn-primary{
+    @include button();
+    color: white !important;
+    background-color: map-get($colors, "pink") !important;
+    &:hover {
+        background-color: white !important;
+        color: map-get($colors, "pink") !important;
+    }
+}
+.btn-secondary{
+    @include button();
+    color: map-get($colors, "pink");
+    background-color: white;
+    &:hover {
+        background-color: map-get($colors, "pink");
+        color: white;
+    }
+}
+.site-header{
+    width: calc(100% - 240px);
+    margin: auto;
+    .menu-menu-1-container{
+        ul{
+            gap: 35px;
+            justify-content: end;
+            a{
+                text-transform: uppercase;
+                @extend .font__size__18;
+                @extend .font__weight__600;
+                @extend .font__color__black;
+                @include hrefHover();
+            }
+        }
+    }
+    &-wrapper{
+        padding: 9px 0;
+        border-bottom: 1px solid rgba($color: #333333, $alpha: .25);
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        transition: .25s all;
+        &.scrolled{
+            background-color: #fff;
+        }
+    }
+}
+section:not(.block__hero){
+    margin: 150px 0;
+}
+section#kontakt{
+    margin-top: 50;
+    padding-top: 100px;
+}
+.blog-container{
+    max-width: 1024px !important;
+}
+input, textarea, select{
+    width: 100%;
+    background: none;
+    border: 0 !important;
+    border-bottom: 1px solid rgba($color: #333333, $alpha: .25) !important;
+    padding: 15px !important;
+    border-radius: 0 !important;
+    margin: 25px 0 !important;
+    &::placeholder {
+        font-family: 'Lato', sans-serif;
+    }
+}
+input[type="submit"]{
+    width: auto;
+    margin: auto;
+    text-align: center;
+}
+.wpcf7-checkbox{
+    text-align: center;
+}
+.wpcf7-acceptance{
+    input{
+        width: auto;
+    }
+}
+.wpcf7-submit{
+    @include button();
+}
+textarea{
+    max-height: 75px;
+    margin-top: 25px;
+}
+footer{
+    border-top: 2px solid #F49AC0;
+    padding-top: 45px;
+    .content{
+        margin-left: 120px;
+        margin-right: 120px;
+    }
+}
+html #wpadminbar{
+    display: none !important;
+}
+.wp-gr .grw-slider .grw-slider-header-inner,
+.wp-gr .grw-slider .grw-slider-review-inner{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.wp-gr.wpac .wp-google-name{
+font-size: 24px !important;
+}
+.wpac{
+    margin: 85px 0 !important;
+    display: none !important;
+}
+@import "_responsive.scss";

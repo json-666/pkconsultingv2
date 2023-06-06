@@ -1,0 +1,20 @@
+.block__columns {
+    &__inner {
+        margin-right: 120px;
+        p{
+            text-align: justify;
+            max-width: 820px;
+            margin: auto;
+        }
+        &__buttons{
+            margin-top: 75px;
+        }
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .block__columns__inner {
+        margin-right: 0;
+
+    }
+}

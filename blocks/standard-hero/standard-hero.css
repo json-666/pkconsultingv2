@@ -1,0 +1,16 @@
+.block__hero__inner {
+  margin-left: 120px;
+}
+
+.block__hero__inner__content {
+  margin-top: -170px;
+}
+
+@media screen and (max-width: 1450px) {
+  .block__hero__inner {
+    margin-left: 0;
+  }
+  .block__hero__inner__content {
+    margin-top: 0;
+  }
+}

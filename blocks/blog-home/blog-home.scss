@@ -1,0 +1,17 @@
+.block__blog-home__inner__thumb{
+    max-height: 195px;
+    overflow: hidden;
+}
+.block__blog-home__inner__thumb__overlay {
+    height: 195px;
+    position: absolute;
+    background: linear-gradient(-180deg, #E0D4C8 0%, rgba(224, 212, 200, 0) 100%);
+    width: 100%;
+    top: 0;
+    transform: rotate(180deg);
+}
+.block__realizacje__inner__single__content__title {
+    height: 95px;
+    display: block;
+}
+

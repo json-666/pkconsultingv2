@@ -1,0 +1,54 @@
+.block__oferta__inner__single{
+    p{
+        text-align: justify;
+        line-height: 21px;
+    }
+    .accordion{
+        border: 1px solid rgba($color: #333333, $alpha: .25);
+        border-radius: 10px;
+        margin-bottom: 25px;
+        padding: 13px;
+        h3{
+            margin: 0;
+            cursor: pointer;
+            transition: .25s all;
+        }
+        p{
+            opacity: 0;
+            max-height: 0;
+            height: 100%;
+            transition: .25s all;
+            margin: 0;
+        }
+        position: relative;
+        &::after{
+            content: '';
+            width: 14px;
+            height: 9px;
+            background-image: url(../../images/arrow.svg);
+            background-size: contain;
+            background-position: center;
+            position: absolute;
+            right: 15px;
+            top: 16px;
+            transform: rotate(180deg);
+            transition: .25s all;
+        }
+        &.is-open{
+            &::after{
+                transform: rotate(0);
+            }
+            h3{
+                color: #F49AC0;
+            }
+            p {
+                opacity: 1;
+                max-height: 300px;
+                height: 100%;
+                transition: .25s all;
+                margin-top: 25px;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
